@@ -1,6 +1,6 @@
 .standardArrayPanel {
-  background-color: #f3f3f5;
-  padding: 24px 32px;
+  background-color: $light-grey;
+  padding: $spacing-xl $spacing-3xl;
 
   display: flex;
   flex-direction: column;
@@ -9,9 +9,9 @@
   .selectContainer {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: $spacing-md;
     span {
-      margin-right: 8px;
+      margin-right: $spacing-xxs;
     }
     label {
       width: 100px;
@@ -20,7 +20,7 @@
       }
     }
 
-    @media (min-width: 1024px) {
+    @include respond-min(desktop) {
       flex-direction: row;
     }
   }

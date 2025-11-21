@@ -1,15 +1,15 @@
 .tabsMenu {
-  margin-top: 20px;
-  margin-bottom: 12px;
-  border-radius: 20px;
-  padding: 4px 6px;
-  background-color: #ebebf0;
+  margin-top: $spacing-lg;
+  margin-bottom: $spacing-small;
+  border-radius: $spacing-lg;
+  padding: $spacing-xxxs $spacing-xxs;
+  background-color: $grey;
   display: flex;
   justify-content: space-evenly;
   button {
     all: unset;
 
-    padding: 8px 0;
+    padding: $spacing-xxs 0;
     border-radius: 16px;
     width: 250px;
     text-align: center;
@@ -22,4 +22,3 @@
     }
   }
 }
-

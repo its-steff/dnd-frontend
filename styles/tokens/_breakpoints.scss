@@ -1,0 +1,39 @@
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-xl: 1500px;
+
+@mixin respond-min($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (min-width: $breakpoint-mobile) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    @media (min-width: $breakpoint-tablet) {
+      @content;
+    }
+  } @else if $breakpoint == desktop {
+    @media (min-width: $breakpoint-desktop) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (min-width: $breakpoint-xl) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$breakpoint}";
+  }
+}
+
+// usage example
+// .button {
+//   padding: $spacing-sm $spacing-md;
+
+//   @include respond-min(tablet) {
+//     padding: $spacing-md $spacing-lg;
+//   }
+
+//   @include respond-min(desktop) {
+//     padding: $spacing-lg $spacing-xl;
+//   }
+// }

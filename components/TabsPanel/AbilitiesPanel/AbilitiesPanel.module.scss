@@ -1,21 +1,21 @@
 .abilitiesPanel {
   .options {
-    margin-bottom: 26px;
+    margin-bottom: $spacing-2xl;
     display: flex;
     flex-direction: column;
 
     button {
       border: 2px solid #f2f2f2;
       background-color: #fff;
-      padding: 8px 4px;
+      padding: $spacing-xxs $spacing-xxxs;
       border-radius: 10px;
       color: #929292;
       font-weight: 700;
-      font-size: 18px;
+      font-size: $font-lg;
 
       &:hover {
         cursor: pointer;
-        background-color: #f3f3f5;
+        background-color: $light-grey;
       }
     }
   }
@@ -24,11 +24,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 28px;
+    gap: $spacing-2xl;
 
     h3 {
-      color: #73310a;
-      font-size: 20px;
+      color: $brown;
+      font-size: $font-lg;
     }
   }
 
@@ -36,8 +36,7 @@
   .defensesContainer {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    // width: 100%;
+    gap: $spacing-xl;
   }
 
   @media (min-width: 700px) {
@@ -47,30 +46,30 @@
 
       h3 {
         width: 100%;
-        background-color: #fde585;
-        padding: 8px;
+        background-color: $yellow;
+        padding: $spacing-xxs;
       }
     }
     .abilitiesContainer,
     .defensesContainer {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      row-gap: 20px;
+      row-gap: $spacing-lg;
       justify-items: center;
       width: 100%;
     }
   }
 
-  @media (min-width: 1024px) {
+  @include respond-min(desktop) {
     .abilitiesContainer {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      row-gap: 40px;
+      row-gap: $spacing-5xl;
       justify-items: center;
     }
   }
 
-  @media (min-width: 1500px) {
+  @include respond-min(xl) {
     .defensesContainer {
       grid-template-columns: 1fr 1fr 1fr 1fr;
     }

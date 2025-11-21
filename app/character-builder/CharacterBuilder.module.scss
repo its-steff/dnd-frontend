@@ -3,17 +3,14 @@
     display: none;
   }
   h2 {
-    font-size: 20px;
-    font-weight: 400;
-    // margin-bottom: $spacing-lg;
-    margin-bottom: 20px;
+    @include h2-style;
+    margin-bottom: $spacing-lg;
   }
 
   section {
-    border: 1px solid #e5e5e5;
+    border: 1px solid $border-grey;
     border-radius: 10px;
-    // padding: $spacing-lg $spacing-xl;
-    padding: 20px 24px;
+    padding: $spacing-lg $spacing-xl;
     background-color: #ffffff;
   }
 }

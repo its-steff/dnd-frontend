@@ -1,6 +1,6 @@
 .header {
   color: white;
-  padding: 40px;
+  padding: $spacing-5xl;
   border: 1px solid black;
   background-image: linear-gradient(
     to right,
@@ -14,21 +14,20 @@
   nav {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: $spacing-xs;
     span {
-      font-size: 38px;
+      font-size: $font-3xl;
     }
   }
 
   ul {
     display: flex;
-    gap: 30px;
+    gap: $spacing-3xl;
     list-style: none;
     padding: 0;
-    font-size: 20px;
-
+    font-size: $font-lg;
     a {
-      color: #fde685;
+      color: $light-yellow;
     }
   }
 }

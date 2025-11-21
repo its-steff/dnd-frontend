@@ -4,30 +4,34 @@
   label {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-bottom: 12px;
+    gap: spacing-xxs;
+    margin-bottom: $spacing-small;
     font-weight: 700;
 
     input {
       border-radius: 5px;
-      border: 1px solid #f3f3f5;
-      background-color: #f3f3f5;
-      padding: 8px;
-      font-size: 16px;
+      border: 1px solid $light-grey;
+      background-color: $light-grey;
+      padding: $spacing-xxs;
+      font-size: $font-md;
     }
   }
 
   .formRow {
     select {
-      font-size: 16px;
-      padding: 8px;
+      font-size: $font-md;
+      padding: $spacing-xxs;
       border-radius: 5px;
-      border: 1px solid #f3f3f5;
-      background-color: #f3f3f5;
+      border: 1px solid $light-grey;
+      background-color: $light-grey;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
-  @media (min-width: 1024px) {
+  @include respond-min(desktop) {
     .formRow {
       display: flex;
       justify-content: space-evenly;
