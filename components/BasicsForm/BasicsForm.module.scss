@@ -1,0 +1,39 @@
+.basicsForm {
+  width: 100%;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+    font-weight: 700;
+
+    input {
+      border-radius: 5px;
+      border: 1px solid #f3f3f5;
+      background-color: #f3f3f5;
+      padding: 8px;
+      font-size: 16px;
+    }
+  }
+
+  .formRow {
+    select {
+      font-size: 16px;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #f3f3f5;
+      background-color: #f3f3f5;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .formRow {
+      display: flex;
+      justify-content: space-evenly;
+    }
+    label {
+      width: 25vw;
+    }
+  }
+}

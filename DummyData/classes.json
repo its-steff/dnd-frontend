@@ -1,0 +1,30 @@
+[
+  {
+    "armor_proficiencies": ["Cloth"],
+    "class_features": {
+      "Arcane Implement Mastery": "You specialize in one kind of implement: Orb of Imposition, Staff of Defense, or Wand of Accuracy",
+      "Cantrips": "Minor spells you gain at 1st level: Ghost Sound, Light, Mage Hand and Prestidigitation",
+      "Ritual Casting": "You gain the Ritual Caster Feat and your book contains three 1st level rituals of your choice",
+      "Spellbook": "You begin knowing two daily spells, one Encounter spell and one Utility spell"
+    },
+    "defense_bonus": "+2 Willpower",
+    "healing_surges_per_day": "6 + Constitution modifier",
+    "hp_per_level": "4",
+    "implement": "Orbs, staffs, wands",
+    "key_abilities": ["Intelligence", "Dexterity", "Wisdom"],
+    "name": "Wizard",
+    "power_source": "Arcane",
+    "role": "Controller",
+    "starting_hp": "10 + Constitution score",
+    "trained_skill": "Arcana",
+    "trained_skill_choices": [
+      "Diplomacy",
+      "Dungeoneering",
+      "History",
+      "Insight",
+      "Nature",
+      "Religion"
+    ],
+    "weapon_proficiencies": ["Dagger", "Quarterstaff"]
+  }
+]

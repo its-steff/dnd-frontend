@@ -1,0 +1,80 @@
+[
+  {
+    "abilities": {
+      "strength": "+2",
+      "charisma": "+2"
+    },
+    "description": "Proud humanoids with draconic ancestry.",
+    "languages": ["Common", "Draconic"],
+    "name": "Dragonborn",
+    "racial_powers": {
+      "Dragonborn Fury": "When you're bloodied, you gain a +1 racial bonus to attack rolls",
+      "Draconic Heritage": "Your hearing surge value is equal to one-quarter of your maximum hit points + your Constitution modifier",
+      "Dragon Breath": "You can use dragon breath as an encounter power"
+    },
+    "size": "Medium",
+    "skill_bonuses": {
+      "History": "+2",
+      "Intimidate": "+2"
+    },
+    "speed": "6",
+    "vision": "Normal"
+  },
+  {
+    "abilities": {
+      "constitution": "+2",
+      "wisdom": "+2"
+    },
+    "description": "Short humanoids that are hardy and originally come from the mountains",
+    "languages": ["Common", "Dwarven"],
+    "name": "Dwarf",
+    "racial_powers": {
+      "Cast-Iron Stomach": "+5 racial bonus to saving throws against poison",
+      "Dwarven Resilience": "You can use your second wind as a minor action instead of a standard action",
+      "Dwarven Weapon Proficiency": "You gain proficiency with the throwing hammer and the warhammer",
+      "Encumbered Speed": "You move at your normal speed even when it would normally be reduced by armor or a heavy load. Other effects that limit speed (like difficult terrain or magical effects) affect you normally",
+      "Stand your ground": "When an effect forced you to move like a push, pull, or slide- you can move 1 square less than the effect specifies. So moves that would require you to move 1, you move none. And when an attack would knock you prone, you can instantly make a saving throw to avoid being prone"
+    },
+    "size": "Medium",
+    "skill_bonuses": {
+      "Dungeoneering": "+2",
+      "Endurance": "+2"
+    },
+    "speed": "5",
+    "vision": "lowlight"
+  },
+  {
+    "abilities": { "dexterity": "+2", "intelligence": "+2" },
+    "defenses": { "willpower": "+1" },
+    "description": "Similar to elves, but more closely related to the Feywild. They are considered a type of Fey",
+    "languages": ["Common", "Elven"],
+    "name": "Eladrin",
+    "racial_powers": {
+      "Eladrin Education": "You gain training in one additional skill selected from the skill list in Chapter 5",
+      "Eladrin Weapon Proficiency": "You gain proficiency with the longsword",
+      "Eladrin Will": "You gain a +1 racial bonus to your Will defense. And, you get +5 bonus to saving throws against charm effects",
+      "Fey Origin": "Your ancestors were native to the Feywild, so you are considered a fey creature for the purpose of effects that relate to creature origin.",
+      "Trance": "Rather than sleep, eladrin meditate in a trance. You only need to spend 4 hours in this state to gain the same benefits other races gain from taking a 6 hour extended rest. While in a trance, you are fully aware of your surroundings and notice approaching enemies and other events as normal",
+      "Fey Step": "You can use fey step as an encounter power"
+    },
+    "size": "Medium",
+    "skill_bonuses": { "Arcana": "+2", "History": "+2" },
+    "speed": "6",
+    "vision": "lowlight"
+  },
+  {
+    "abilities": { "strength": "+2", "dexterity": "+2" },
+    "description": "Half human half orc",
+    "languages": ["Common", "Giant"],
+    "name": "Half-Orc",
+    "racial_powers": {
+      "Half-Orc Resilience": "First time you get bloodied in an encounter, you get 5 temp HP. They increase at higher levels",
+      "Swift Charge": "+2 bonus to speed when you charge",
+      "Furious Assault": "Encounter power when you hit an adversary that deals one extra weapon damage die, or 1d8 if no weapon used."
+    },
+    "size": "Medium",
+    "skill_bonuses": { "Endurance": "+2", "Intimidate": "+2" },
+    "speed": "6",
+    "vision": "lowlight"
+  }
+]

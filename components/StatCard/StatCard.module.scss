@@ -1,0 +1,28 @@
+.statCard {
+  // border: 1px solid black;
+  border: 1px solid #e5e5e5;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+
+  .statTitle {
+    background-color: #73310b;
+    color: white;
+    padding: 8px;
+  }
+  div {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 8px;
+
+    border-bottom: 1px solid #e5e5e5;
+
+    .statNumber {
+      justify-self: flex-end;
+    }
+
+    &.statHighlight {
+      background-color: #f3ebd2;
+    }
+  }
+}

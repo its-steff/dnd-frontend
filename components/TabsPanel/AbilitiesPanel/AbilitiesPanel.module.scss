@@ -1,0 +1,78 @@
+.abilitiesPanel {
+  .options {
+    margin-bottom: 26px;
+    display: flex;
+    flex-direction: column;
+
+    button {
+      border: 2px solid #f2f2f2;
+      background-color: #fff;
+      padding: 8px 4px;
+      border-radius: 10px;
+      color: #929292;
+      font-weight: 700;
+      font-size: 18px;
+
+      &:hover {
+        cursor: pointer;
+        background-color: #f3f3f5;
+      }
+    }
+  }
+
+  .abilities {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+
+    h3 {
+      color: #73310a;
+      font-size: 20px;
+    }
+  }
+
+  .abilitiesContainer,
+  .defensesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    // width: 100%;
+  }
+
+  @media (min-width: 700px) {
+    .abilities {
+      width: 70%;
+      margin: 0 auto;
+
+      h3 {
+        width: 100%;
+        background-color: #fde585;
+        padding: 8px;
+      }
+    }
+    .abilitiesContainer,
+    .defensesContainer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      row-gap: 20px;
+      justify-items: center;
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .abilitiesContainer {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      row-gap: 40px;
+      justify-items: center;
+    }
+  }
+
+  @media (min-width: 1500px) {
+    .defensesContainer {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+}
