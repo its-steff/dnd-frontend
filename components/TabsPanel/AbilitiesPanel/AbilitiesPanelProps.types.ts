@@ -11,4 +11,5 @@ export interface AbilitiesPanelProps {
     React.SetStateAction<Record<string, number>>
   >;
   defenses: string[];
+  classDefenseBonus?: string | string[];
 }

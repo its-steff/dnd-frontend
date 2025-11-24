@@ -12,4 +12,5 @@ export interface TabsPanelProps {
     React.SetStateAction<Record<string, number>>
   >;
   defensesList: string[];
+  classDefenseBonus?: string | string[];
 }

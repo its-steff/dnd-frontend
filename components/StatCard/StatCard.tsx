@@ -4,10 +4,10 @@ import styles from "./StatCard.module.scss";
 const StatCard: React.FC<StatCardProps> = ({
   racialBonus,
   abilityBonus = 0,
-  classBonus,
-  armorBonus,
-  featBonus,
-  miscBonus,
+  classBonus = 0,
+  armorBonus = 0,
+  featBonus = 0,
+  miscBonus = 0,
   modifier,
   name,
   score,
@@ -19,10 +19,8 @@ const StatCard: React.FC<StatCardProps> = ({
         return score + racialBonus;
       } else return score;
     } else if (type === "defense") {
-      if (miscBonus) {
-        return score + abilityBonus + miscBonus;
-      } else return score + abilityBonus;
-    }
+      return score + abilityBonus + miscBonus + classBonus;
+    } else return score + abilityBonus;
   };
 
   return (

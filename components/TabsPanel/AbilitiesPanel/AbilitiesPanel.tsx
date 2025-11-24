@@ -14,6 +14,7 @@ const AbilitiesPanel: React.FC<AbilitiesPanelProps> = ({
   setAssignedScores,
   defenses,
   setAssignedDefenses,
+  classDefenseBonus,
 }) => {
   const [activeButtonPanel, setActiveButtonPanel] = useState<
     "standard" | "pointBuy" | null
@@ -114,6 +115,29 @@ const AbilitiesPanel: React.FC<AbilitiesPanelProps> = ({
     });
   }
 
+  function parseClassDefenseBonus(
+    bonus: string | string[] | undefined
+  ): Record<string, number> {
+    if (!bonus) return {};
+    const bonuses = Array.isArray(bonus) ? bonus : [bonus];
+
+    const result: Record<string, number> = {};
+
+    bonuses.forEach((entry) => {
+      const match = entry.match(
+        /([+-]?\d+)\s+(AC|Fortitude|Reflex|Willpower)/i
+      );
+      if (match) {
+        const value = parseInt(match[1], 10);
+        const defense = match[2];
+        result[defense] = value;
+      }
+    });
+    return result;
+  }
+
+  const getclassDefenseBonuses = parseClassDefenseBonus(classDefenseBonus);
+
   return (
     <div className={styles.abilitiesPanel}>
       <div className={styles.options}>
@@ -170,6 +194,8 @@ const AbilitiesPanel: React.FC<AbilitiesPanelProps> = ({
               ? parseInt(racialDefenseBonuses[key], 10)
               : 0;
 
+            const classBonus = getclassDefenseBonuses[defense] ?? 0;
+
             // 1. Compute the relevant ability modifiers here
             const dexMod = getModifier(
               (assignedScores["Dexterity"] ?? 10) +
@@ -219,7 +245,7 @@ const AbilitiesPanel: React.FC<AbilitiesPanelProps> = ({
                 type="defense"
                 score={10} // Base value
                 abilityBonus={abilityBonus}
-                classBonus={0}
+                classBonus={classBonus}
                 armorBonus={0}
                 featBonus={0}
                 miscBonus={racialDefenseBonus}

@@ -6,12 +6,15 @@ import BasicsForm from "@/components/BasicsForm/BasicsForm";
 import TabsMenu from "@/components/TabsMenu/TabsMenu";
 import TabsPanel from "@/components/TabsPanel/TabsPanel";
 import speciesData from "@/DummyData/species.json";
+import classesData from "@/DummyData/classes.json";
 import { Species } from "@/types/species";
+import { Classes } from "@/types/classes";
 
 export default function CharacterBuilderPage() {
   const tabs = ["Abilities", "Comabt Stats", "Skills", "Powers", "Inventory"];
   const [activeTab, setActiveTab] = useState("Abilities");
   const [selectedSpecies, setSelectedSpecies] = useState<Species | null>(null);
+  const [selectedClass, setSelectedClass] = useState<Classes | null>(null);
 
   const abilitiesList = [
     "Strength",
@@ -51,6 +54,9 @@ export default function CharacterBuilderPage() {
           speciesList={speciesData}
           selectedSpecies={selectedSpecies}
           setSelectedSpecies={setSelectedSpecies}
+          selectedClass={selectedClass}
+          setSelectedClass={setSelectedClass}
+          classesList={classesData}
         />
       </section>
 
@@ -63,7 +69,7 @@ export default function CharacterBuilderPage() {
         setAssignedScores={setAssignedScores}
         defensesList={defensesList}
         setAssignedDefenses={setAssignedDefense}
-
+        classDefenseBonus={selectedClass?.defense_bonus || undefined}
       />
     </main>
   );

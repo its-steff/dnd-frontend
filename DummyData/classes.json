@@ -1,5 +1,91 @@
 [
   {
+    "armor_proficiencies": ["Cloth", "Leather", "Hide", "Chainmail"],
+    "class_features": {
+      "Channel Divinity": "Invoke your divine power once per encounter and wield special powers",
+      "Healer's Lore": "Add your wisdom modifier to the HP gained when you grant healing with one of your cleric abilities",
+      "Healing Word": "You can use the Healing Word power",
+      "Ritual Casting": "You get the Ritual Caster feat"
+    },
+    "defense_bonus": "+2 Willpower",
+    "healing_surges_per_day": "7 + Constitution modifier",
+    "hp_per_level": "5",
+    "implement": "Holy symbol",
+    "key_abilities": ["Wisdom", "Strength", "Charisma"],
+    "name": "Cleric",
+    "power_source": "Divine",
+    "role": "Leader",
+    "starting_hp": "12",
+    "trained_skill": "Religion",
+    "trained_skill_choices": [
+      "Arcana",
+      "Diplomacy",
+      "Heal",
+      "Insight",
+      "Religion"
+    ],
+    "weapon_proficiencies": ["Simple melee", "simple ranged"]
+  },
+  {
+    "armor_proficiencies": [
+      "Cloth",
+      "Leather",
+      "Hide",
+      "Chainmail",
+      "Scale",
+      "Light shield",
+      "Heavy shield"
+    ],
+    "class_features": {
+      "Combat Challenge": "You can choose to mark the target every time you attack an enemy, regardless if you hit or miss it. Mark lasts until the end of your next turn, and it takes a -2 penalty to attack rolls for any attack that does not include you as the target. And, when the marked target shifts or makes an attack that does not include you, you can make a melee basic attack against the enemy as an immediate interrupt",
+      "Combat Superiority": "Bonus to opportunity attacks equal to your Wisdom modifier. When you hit an enemy with it, they stop moving, if a move provoked the attack. I can still move if it has actions left",
+      "Fighter Weapon Talent": "+1 to attack rolls with weapons of a chosen style: one handed or two handed."
+    },
+    "defense_bonus": "+2 Fortitude",
+    "healing_surges_per_day": "9 + Constitution modifier",
+    "hp_per_level": "6",
+    "implement": "none",
+    "key_abilities": ["Strength", "Dexterity", "Wisdom", "Constitution"],
+    "name": "Fighter",
+    "power_source": "Martial",
+    "role": "Defender",
+    "starting_hp": "15",
+    "trained_skill": "none",
+    "trained_skill_choices": [
+      "Athletics",
+      "Endurance",
+      "Heal",
+      "Intimidate",
+      "Streetwise"
+    ],
+    "weapon_proficiencies": [
+      "Simple melee",
+      "Military melee",
+      "Simple ranged",
+      "military ranged"
+    ]
+  },
+  {
+    "armor_proficiencies": ["Cloth", "Leather", "Hide", "Chainmail", "Scale", "Plate", "Light shield", "Heavy shield"],
+    "class_features": {
+      "Channel Divinity": "Invoke your deity once per encounter and wield special powers such as divine mettle and divine strength",
+      "Divine Challenge": "Can mark an enemy of your choice with Divine Challenge power",
+      "Lay On Hands": "Heal your friends"
+    },
+    "defense_bonus": ["+1 Fortitude", "+1 Reflex", "+1 Willpower"],
+    "healing_surges_per_day": "10 + Constitution modifier",
+    "hp_per_level": "6",
+    "implement": "Holy symbol",
+    "key_abilities": ["Strength", "Charisma", "Wisdom"],
+    "name": "Paladin",
+    "power_source": "Divine",
+    "role": "Defender",
+    "starting_hp": "15",
+    "trained_skill": "Religion",
+    "trained_skill_choices": ["Diplomacy", "Endurance", "Heal", "History", "Insight", "Intimidate", "Religion"],
+    "weapon_proficiencies": ["Simple melee", "military melee", "simple ranged"]
+  },
+  {
     "armor_proficiencies": ["Cloth"],
     "class_features": {
       "Arcane Implement Mastery": "You specialize in one kind of implement: Orb of Imposition, Staff of Defense, or Wand of Accuracy",
@@ -15,7 +101,7 @@
     "name": "Wizard",
     "power_source": "Arcane",
     "role": "Controller",
-    "starting_hp": "10 + Constitution score",
+    "starting_hp": "10",
     "trained_skill": "Arcana",
     "trained_skill_choices": [
       "Diplomacy",

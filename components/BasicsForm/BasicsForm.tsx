@@ -9,6 +9,9 @@ const BasicsForm: React.FC<BasicsFormProps> = ({
   speciesList,
   selectedSpecies,
   setSelectedSpecies,
+  selectedClass,
+  setSelectedClass,
+  classesList,
 }) => {
   return (
     <form className={styles.basicsForm}>
@@ -50,25 +53,24 @@ const BasicsForm: React.FC<BasicsFormProps> = ({
             ))}
           </select>
         </label>
+
         <label>
           Class
-          <select>
+          <select
+            name="classes"
+            value={selectedClass?.name ?? ""}
+            onChange={(e) => {
+              const charClass =
+                classesList.find((c) => c.name === e.target.value) || null;
+              setSelectedClass(charClass);
+            }}
+          >
             <option value="">Select a class</option>
-            <option value="Cleric" key="Cleric">
-              Cleric
-            </option>
-            <option value="Fighter" key="Fighter">
-              Fighter
-            </option>
-            <option value="Paladin" key="Paladin">
-              Paladin
-            </option>
-            <option value="Ranger" key="Ranger">
-              Ranger
-            </option>
-            <option value="Wizard" key="Wizard">
-              Wizard
-            </option>
+            {classesList.map((charClass) => (
+              <option key={charClass.name} value={charClass.name}>
+                {charClass.name}
+              </option>
+            ))}
           </select>
         </label>
       </div>

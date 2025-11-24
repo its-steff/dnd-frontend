@@ -11,7 +11,8 @@ const TabsPanel: React.FC<TabsPanelProps> = ({
   assignedScores,
   setAssignedScores,
   defensesList,
-  setAssignedDefenses
+  setAssignedDefenses,
+  classDefenseBonus,
 }) => {
   const findPanel =
     activeTab === "Abilities" ? (
@@ -22,6 +23,7 @@ const TabsPanel: React.FC<TabsPanelProps> = ({
         setAssignedScores={setAssignedScores}
         defenses={defensesList}
         setAssignedDefenses={setAssignedDefenses}
+        classDefenseBonus={classDefenseBonus || undefined}
       />
     ) : undefined;
 
