@@ -11,10 +11,12 @@ import { Species } from "@/types/species";
 import { Classes } from "@/types/classes";
 
 export default function CharacterBuilderPage() {
-  const tabs = ["Abilities", "Comabt Stats", "Skills", "Powers", "Inventory"];
+  const tabs = ["Abilities", "Combat Stats", "Skills", "Powers", "Inventory"];
   const [activeTab, setActiveTab] = useState("Abilities");
   const [selectedSpecies, setSelectedSpecies] = useState<Species | null>(null);
   const [selectedClass, setSelectedClass] = useState<Classes | null>(null);
+
+  console.log("selectedClass", selectedClass);
 
   const abilitiesList = [
     "Strength",
@@ -64,6 +66,7 @@ export default function CharacterBuilderPage() {
       <TabsPanel
         activeTab={activeTab}
         abilitiesList={abilitiesList}
+        selectedClass={selectedClass}
         selectedSpecies={selectedSpecies}
         assignedScores={assignedScores}
         setAssignedScores={setAssignedScores}

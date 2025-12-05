@@ -3,10 +3,12 @@
 import styles from "./TabsPanel.module.scss";
 import { TabsPanelProps } from "./TabsPanelProps.types";
 import AbilitiesPanel from "./AbilitiesPanel/AbilitiesPanel";
+import CombatStatsPanel from "./CombatStatsPanel/CombatStatsPanel";
 
 const TabsPanel: React.FC<TabsPanelProps> = ({
   activeTab,
   abilitiesList,
+  selectedClass,
   selectedSpecies,
   assignedScores,
   setAssignedScores,
@@ -14,8 +16,31 @@ const TabsPanel: React.FC<TabsPanelProps> = ({
   setAssignedDefenses,
   classDefenseBonus,
 }) => {
-  const findPanel =
-    activeTab === "Abilities" ? (
+  const calculateTotalHP = () => {
+    if (assignedScores.Constitution > 0 && selectedClass) {
+      const classHP = parseInt(selectedClass?.starting_hp);
+      const constitutionScore = assignedScores.Constitution;
+      return classHP + constitutionScore;
+    }
+  };
+
+  const calculateBloodied = () => {
+    if (totalHP) {
+      return totalHP % 2;
+    }
+  };
+
+//   const calculateSurgesPerDay = () => {
+//     if(assignedScores.Constitution > 0){
+// return assignedScores.Constitution
+//     }
+//   }
+
+  const totalHP = calculateTotalHP();
+  const bloodiedValue = calculateBloodied();
+
+  const panelMap: Record<string, React.ReactNode> = {
+    Abilities: (
       <AbilitiesPanel
         abilities={abilitiesList}
         selectedSpecies={selectedSpecies}
@@ -25,9 +50,25 @@ const TabsPanel: React.FC<TabsPanelProps> = ({
         setAssignedDefenses={setAssignedDefenses}
         classDefenseBonus={classDefenseBonus || undefined}
       />
-    ) : undefined;
+    ),
+    "Combat Stats": (
+      <CombatStatsPanel
+        totalHP={totalHP}
+        bloodied={bloodiedValue}
+        surgeValue={0}
+        surgesPerDay={0}
+      />
+    ),
+    Skills: <div>Skills panel coming soon…</div>,
+    Powers: <div>Powers panel coming soon…</div>,
+    Inventory: <div>Inventory panel coming soon…</div>,
+  };
 
-  return <section className={styles.panelSection}>{findPanel}</section>;
+  return (
+    <section className={styles.panelSection}>
+      {panelMap[activeTab] ?? null}
+    </section>
+  );
 };
 
 export default TabsPanel;
