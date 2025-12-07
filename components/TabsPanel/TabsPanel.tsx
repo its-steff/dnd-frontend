@@ -16,28 +16,66 @@ const TabsPanel: React.FC<TabsPanelProps> = ({
   setAssignedDefenses,
   classDefenseBonus,
 }) => {
+  // Shared modifier calculation function (same logic as AbilitiesPanel)
+  const getModifier = (score: number) => {
+    if (score <= 9) return -1;
+    if (score <= 11) return 0;
+    if (score <= 13) return +1;
+    if (score <= 15) return +2;
+    if (score <= 17) return +3;
+    if (score <= 19) return +4;
+    return +5; // 20+ etc.
+  };
+
   const calculateTotalHP = () => {
     if (assignedScores.Constitution > 0 && selectedClass) {
       const classHP = parseInt(selectedClass?.starting_hp);
       const constitutionScore = assignedScores.Constitution;
       return classHP + constitutionScore;
     }
+    return undefined;
   };
 
-  const calculateBloodied = () => {
-    if (totalHP) {
-      return totalHP % 2;
+  const calculateBloodied = (hp: number | undefined) => {
+    if (hp) {
+      return Math.floor(hp / 2);
     }
+    return undefined;
   };
 
-//   const calculateSurgesPerDay = () => {
-//     if(assignedScores.Constitution > 0){
-// return assignedScores.Constitution
-//     }
-//   }
+  const calculateConstitutionModifier = () => {
+    const racialBonuses = selectedSpecies?.abilities ?? {};
+    const constitutionKey = "constitution";
+    const racialBonus = racialBonuses[constitutionKey]
+      ? parseInt(racialBonuses[constitutionKey], 10)
+      : 0;
+    const baseScore = assignedScores.Constitution ?? 10;
+    const totalScore = baseScore + racialBonus;
+    return getModifier(totalScore);
+  };
+
+  const calculateSurgesPerDay = () => {
+    const constitutionModifier = calculateConstitutionModifier();
+
+    const classHealingSurges = selectedClass?.healing_surges_per_day;
+
+    if (classHealingSurges) {
+      return classHealingSurges + constitutionModifier;
+    } else return 0;
+  };
+
+  const calculateSurgeValue = (hp: number | undefined) => {
+    if (hp) {
+      // Healing surge value is typically 1/4 of max HP
+      return Math.floor(hp / 4);
+    }
+    return 0;
+  };
 
   const totalHP = calculateTotalHP();
-  const bloodiedValue = calculateBloodied();
+  const bloodiedValue = calculateBloodied(totalHP);
+  const surgesPerDay = calculateSurgesPerDay();
+  const surgeValue = calculateSurgeValue(totalHP);
 
   const panelMap: Record<string, React.ReactNode> = {
     Abilities: (
@@ -55,8 +93,8 @@ const TabsPanel: React.FC<TabsPanelProps> = ({
       <CombatStatsPanel
         totalHP={totalHP}
         bloodied={bloodiedValue}
-        surgeValue={0}
-        surgesPerDay={0}
+        surgeValue={surgeValue}
+        surgesPerDay={surgesPerDay}
       />
     ),
     Skills: <div>Skills panel coming soon…</div>,

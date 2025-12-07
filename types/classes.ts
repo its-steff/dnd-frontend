@@ -2,7 +2,7 @@ export interface Classes {
   armor_proficiencies: string[];
   class_features: Partial<Record<string, string>>;
   defense_bonus: string | string[];
-  healing_surges_per_day: string;
+  healing_surges_per_day: number;
   hp_per_level: string;
   implement?: string;
   key_abilities: string[];

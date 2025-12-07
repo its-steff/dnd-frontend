@@ -8,7 +8,7 @@
       "Ritual Casting": "You get the Ritual Caster feat"
     },
     "defense_bonus": "+2 Willpower",
-    "healing_surges_per_day": "7 + Constitution modifier",
+    "healing_surges_per_day": 7,
     "hp_per_level": "5",
     "implement": "Holy symbol",
     "key_abilities": ["Wisdom", "Strength", "Charisma"],
@@ -42,7 +42,7 @@
       "Fighter Weapon Talent": "+1 to attack rolls with weapons of a chosen style: one handed or two handed."
     },
     "defense_bonus": "+2 Fortitude",
-    "healing_surges_per_day": "9 + Constitution modifier",
+    "healing_surges_per_day": 9,
     "hp_per_level": "6",
     "implement": "none",
     "key_abilities": ["Strength", "Dexterity", "Wisdom", "Constitution"],
@@ -73,7 +73,7 @@
       "Lay On Hands": "Heal your friends"
     },
     "defense_bonus": ["+1 Fortitude", "+1 Reflex", "+1 Willpower"],
-    "healing_surges_per_day": "10 + Constitution modifier",
+    "healing_surges_per_day": 10,
     "hp_per_level": "6",
     "implement": "Holy symbol",
     "key_abilities": ["Strength", "Charisma", "Wisdom"],
@@ -94,7 +94,7 @@
       "Spellbook": "You begin knowing two daily spells, one Encounter spell and one Utility spell"
     },
     "defense_bonus": "+2 Willpower",
-    "healing_surges_per_day": "6 + Constitution modifier",
+    "healing_surges_per_day": 6,
     "hp_per_level": "4",
     "implement": "Orbs, staffs, wands",
     "key_abilities": ["Intelligence", "Dexterity", "Wisdom"],

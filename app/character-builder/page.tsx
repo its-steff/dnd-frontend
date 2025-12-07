@@ -16,8 +16,6 @@ export default function CharacterBuilderPage() {
   const [selectedSpecies, setSelectedSpecies] = useState<Species | null>(null);
   const [selectedClass, setSelectedClass] = useState<Classes | null>(null);
 
-  console.log("selectedClass", selectedClass);
-
   const abilitiesList = [
     "Strength",
     "Dexterity",

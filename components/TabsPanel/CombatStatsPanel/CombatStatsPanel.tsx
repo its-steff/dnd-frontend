@@ -3,7 +3,12 @@
 import styles from "./CombatStatsPanel.module.scss";
 import { CombatStatsPanelProps } from "./CombatStatsPanelProps.types";
 
-const CombatStatsPanel: React.FC<CombatStatsPanelProps> = ({ totalHP = 0 }) => {
+const CombatStatsPanel: React.FC<CombatStatsPanelProps> = ({
+  totalHP = 0,
+  bloodied,
+  surgeValue,
+  surgesPerDay,
+}) => {
   return (
     <div className={styles.combatStatsPanel}>
       <div className={styles.combatStatsPanel__container}>
@@ -15,7 +20,9 @@ const CombatStatsPanel: React.FC<CombatStatsPanelProps> = ({ totalHP = 0 }) => {
           </div>
           <div>
             <span className={styles.title}>🩸 BLOODIED </span>
-            <span className={styles.amount}>1/2 HP</span>
+            <span className={styles.amount}>
+              {bloodied !== undefined ? bloodied : "—"}
+            </span>
           </div>
         </div>
       </div>
@@ -25,11 +32,11 @@ const CombatStatsPanel: React.FC<CombatStatsPanelProps> = ({ totalHP = 0 }) => {
         <div className={styles.table}>
           <div>
             <span className={styles.title}>❤️‍🩹 SURGE VALUE</span>
-            <span className={styles.amount}>1/4 HP</span>
+            <span className={styles.amount}>{surgeValue}</span>
           </div>
           <div>
             <span className={styles.title}>💕 SURGES/DAY</span>
-            <span className={styles.amount}>9</span>
+            <span className={styles.amount}>{surgesPerDay}</span>
           </div>
         </div>
       </div>
