@@ -1,0 +1,39 @@
+.registrationForm {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  margin-top: $spacing-4xl;
+  background-color: white;
+  padding: $spacing-lg;
+  border-radius: 10px;
+  border: 1px solid $border-grey;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xxs;
+    font-size: $font-lg;
+
+    input {
+      padding: $spacing-xs;
+      background-color: $light-grey;
+      font-size: $font-md;
+      border: none;
+      border: 1px solid $border-grey;
+    }
+  }
+
+  button {
+    padding: $spacing-small;
+    font-size: $font-md;
+    max-width: 300px;
+    background-color: $yellow;
+    border: none;
+    border-radius: 10px;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
+  }
+}

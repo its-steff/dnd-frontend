@@ -1,0 +1,33 @@
+.homePage {
+  height: 100vh;
+
+  h1 {
+    margin-bottom: $spacing-3xl;
+  }
+
+  &__content {
+    margin-top: $spacing-5xl;
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-xs;
+      button {
+        width: 300px;
+        padding: $spacing-small;
+        font-size: $font-md;
+        background-color: $yellow;
+        border-radius: 10px;
+        border: none;
+
+        &:hover {
+          cursor: pointer;
+          opacity: 0.8;
+        }
+      }
+
+      @include respond-min(tablet) {
+        flex-direction: row;
+      }
+    }
+  }
+}
