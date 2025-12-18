@@ -11,6 +11,9 @@
     #2d2623
   );
 
+  display: flex;
+  justify-content: space-between;
+
   nav {
     display: flex;
     flex-direction: column;
@@ -29,5 +32,10 @@
     a {
       color: $light-yellow;
     }
+  }
+
+  .messageContainer {
+    font-size: $font-lg;
+    align-self: center;
   }
 }

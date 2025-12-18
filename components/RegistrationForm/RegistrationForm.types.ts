@@ -4,4 +4,5 @@ export interface RegistrationFormProps {
   // email: string;
   loggedIn: boolean;
   mode: "register" | "login";
+  setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
 }

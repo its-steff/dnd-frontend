@@ -1,15 +1,32 @@
 "use client";
 
 import { useState } from "react";
+import { useAuth } from "@/context/AuthContext";
 import styles from "./RegistrationForm.module.scss";
 import { RegistrationFormProps } from "./RegistrationForm.types";
 
-const RegistrationForm: React.FC<RegistrationFormProps> = ({ mode }) => {
+const RegistrationForm: React.FC<RegistrationFormProps> = ({
+  mode,
+  setLoggedIn,
+}) => {
   // const [loggedIn, setLoggedIn] = useState(false);
+
+  const { login } = useAuth();
+
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [error, setError] = useState<string | null>(null);
+
+  const endpoint =
+    mode === "register"
+      ? "http://localhost:4000/auth/register"
+      : "http://localhost:4000/auth/login";
+
+  const body =
+    mode === "register"
+      ? { username: userName, email: userEmail, password }
+      : { username: userName, password };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,33 +34,31 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ mode }) => {
     setError(null);
 
     try {
-      const res = await fetch("http://localhost:4000/auth/register", {
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
-        body: JSON.stringify({
-          username: userName,
-          email: userEmail,
-          password,
-        }),
+        body: JSON.stringify(body),
       });
       const data = await res.json();
 
       if (!res.ok) {
-        setError(data?.error || "Registration failed");
+        setError(data?.error || "Registration or Login failed");
         return;
       }
 
-      window.location.href = "/character-builder";
+      login({
+        id: data.id,
+        username: data.username,
+        email: data.email,
+      });
+      setLoggedIn(true);
+
+      // window.location.href = "/character-builder";
     } catch (err) {
       console.error(err);
       setError("Network error");
     }
-  };
-
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("you are trying to login");
   };
 
   return (
@@ -60,13 +75,13 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ mode }) => {
       <label>
         Make a password
         <input
-          type="text"
+          type="password"
           name="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
       </label>
-      {mode !== "login" && (
+      {mode === "register" && (
         <label>
           Write your email
           <input

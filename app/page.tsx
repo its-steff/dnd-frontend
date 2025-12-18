@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useAuth } from "@/context/AuthContext";
 import styles from "./page.module.scss";
 import RegistrationForm from "@/components/RegistrationForm/RegistrationForm";
 
@@ -9,10 +10,17 @@ export default function Home() {
   const [mode, setMode] = useState<"register" | "login" | undefined>(undefined);
 
   const handleFormDisplay = (chosenMode: "register" | "login") => {
-    return <RegistrationForm loggedIn={loggedIn} mode={chosenMode} />;
+    return (
+      <RegistrationForm
+        loggedIn={loggedIn}
+        mode={chosenMode}
+        setLoggedIn={setLoggedIn}
+      />
+    );
   };
 
-  console.log(mode);
+  const { user } = useAuth();
+
   return (
     <main className={styles.homePage}>
       <h1>Welcome to the D&D 4th Edition Character Builder</h1>
@@ -22,8 +30,8 @@ export default function Home() {
       </p>
 
       <div className={styles.homePage__content}>
-        {loggedIn ? (
-          <p>Heere are your characters</p>
+        {loggedIn && user ? (
+          <p>Hey, {user.username}! Here are your characters</p>
         ) : (
           <div>
             {mode !== "register" && mode !== "login" && (
