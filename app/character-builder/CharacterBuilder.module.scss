@@ -4,7 +4,6 @@
   }
   h2 {
     @include h2-style;
-    margin-bottom: $spacing-lg;
   }
 
   section {
@@ -12,5 +11,24 @@
     border-radius: 10px;
     padding: $spacing-lg $spacing-xl;
     background-color: #ffffff;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $spacing-lg;
+
+    button {
+      font-size: $font-md;
+      padding: $spacing-small $spacing-md;
+      border-radius: 10px;
+      border: none;
+      background-color: $yellow;
+
+      &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+      }
+    }
   }
 }

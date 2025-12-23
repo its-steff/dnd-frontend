@@ -15,6 +15,7 @@ export default function CharacterBuilderPage() {
   const [activeTab, setActiveTab] = useState("Abilities");
   const [selectedSpecies, setSelectedSpecies] = useState<Species | null>(null);
   const [selectedClass, setSelectedClass] = useState<Classes | null>(null);
+  const [characterName, setCharacterName] = useState("");
 
   const abilitiesList = [
     "Strength",
@@ -45,11 +46,34 @@ export default function CharacterBuilderPage() {
     Willpower: 0,
   });
 
+  const handleSaveCharacter = async () => {
+    console.log("you hit character save");
+    const res = await fetch("http://localhost:4000/characters/save", {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: characterName || "Unnamed",
+        species: selectedSpecies?.name || null,
+        className: selectedClass?.name || null,
+        abilities: assignedScores,
+        defenses: assignedDefenses,
+      }),
+    });
+
+    const data = await res.json();
+    console.log(data, "from character save button");
+  };
+
   return (
     <main className={styles.characterBuilderPage}>
       <h1>Character Builder</h1>
       <section>
-        <h2>Basic Information</h2>
+        <div className={styles.characterBuilderPage__header}>
+          <h2>Basic Information</h2>
+          <button onClick={handleSaveCharacter}>Save my character</button>
+        </div>
+
         <BasicsForm
           speciesList={speciesData}
           selectedSpecies={selectedSpecies}
@@ -57,6 +81,8 @@ export default function CharacterBuilderPage() {
           selectedClass={selectedClass}
           setSelectedClass={setSelectedClass}
           classesList={classesData}
+          characterName={characterName}
+          setCharacterName={setCharacterName}
         />
       </section>
 

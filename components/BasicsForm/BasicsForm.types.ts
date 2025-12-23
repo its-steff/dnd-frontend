@@ -8,4 +8,6 @@ export interface BasicsFormProps {
   selectedClass: Classes | null;
   setSelectedClass: React.Dispatch<React.SetStateAction<Classes | null>>;
   classesList: Classes[];
+  characterName: string;
+  setCharacterName: (value: string) => void;
 }

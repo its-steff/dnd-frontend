@@ -12,13 +12,20 @@ const BasicsForm: React.FC<BasicsFormProps> = ({
   selectedClass,
   setSelectedClass,
   classesList,
+  setCharacterName,
+  characterName,
 }) => {
   return (
     <form className={styles.basicsForm}>
       <div className={styles.formRow}>
         <label>
           Charater Name
-          <input type="text" name="characterName" />
+          <input
+            type="text"
+            name="characterName"
+            value={characterName}
+            onChange={(e) => setCharacterName(e.target.value)}
+          />
         </label>
         <label>
           Player Name
