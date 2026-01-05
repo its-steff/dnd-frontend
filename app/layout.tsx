@@ -19,7 +19,7 @@ export default function RootLayout({
       <body>
         <AuthProvider>
           <Header />
-          {children}
+          <div style={{ flex: 1 }}>{children}</div>
           <Footer />
         </AuthProvider>
       </body>

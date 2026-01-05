@@ -4,6 +4,7 @@ import styles from "./TabsPanel.module.scss";
 import { TabsPanelProps } from "./TabsPanelProps.types";
 import AbilitiesPanel from "./AbilitiesPanel/AbilitiesPanel";
 import CombatStatsPanel from "./CombatStatsPanel/CombatStatsPanel";
+import SkillsPanel from "./SkillsPanel/SkillsPanel";
 
 const TabsPanel: React.FC<TabsPanelProps> = ({
   activeTab,
@@ -97,7 +98,7 @@ const TabsPanel: React.FC<TabsPanelProps> = ({
         surgesPerDay={surgesPerDay}
       />
     ),
-    Skills: <div>Skills panel coming soon…</div>,
+    Skills: <SkillsPanel title="Skills Panel" />,
     Powers: <div>Powers panel coming soon…</div>,
     Inventory: <div>Inventory panel coming soon…</div>,
   };

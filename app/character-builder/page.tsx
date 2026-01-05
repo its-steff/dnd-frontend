@@ -87,6 +87,7 @@ export default function CharacterBuilderPage() {
       </section>
 
       <TabsMenu tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
+      
       <TabsPanel
         activeTab={activeTab}
         abilitiesList={abilitiesList}
