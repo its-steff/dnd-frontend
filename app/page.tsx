@@ -12,6 +12,8 @@ export default function Home() {
   const [mode, setMode] = useState<"register" | "login" | undefined>(undefined);
   const [characters, setCharacters] = useState<CharacterSummary[]>([]);
 
+  const { user } = useAuth();
+
   const handleFormDisplay = (chosenMode: "register" | "login") => {
     return (
       <RegistrationForm
@@ -22,7 +24,16 @@ export default function Home() {
     );
   };
 
-  const { user } = useAuth();
+  const handleDeleteCharacter = async (id: number) => {
+    const res = await fetch(`http://localhost:4000/characters/${id}`, {
+      method: "DELETE",
+      credentials: "include",
+    });
+
+    if (res.ok) {
+      setCharacters((prev) => prev.filter((char) => char.id !== id));
+    }
+  };
 
   useEffect(() => {
     if (!loggedIn) return;
@@ -60,9 +71,11 @@ export default function Home() {
                 {characters.map((char) => (
                   <li key={char.id}>
                     <CharacterCard
-                    name={char.name}
-                    class_name={char.class_name}
-                    species={char.species}
+                      name={char.name}
+                      class_name={char.class_name}
+                      species={char.species}
+                      id={char.id}
+                      onDelete={handleDeleteCharacter}
                     />
                   </li>
                 ))}

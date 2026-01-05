@@ -5,6 +5,8 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
   class_name,
   name,
   species,
+  onDelete,
+  id,
 }) => {
   return (
     <div className={styles.characterCard}>
@@ -15,7 +17,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
       </div>
       <div className={styles.characterCard__buttonsContainer}>
         <button>See More</button>
-        <button>Delete</button>
+        <button onClick={() => onDelete(id)}>Delete</button>
       </div>
     </div>
   );
