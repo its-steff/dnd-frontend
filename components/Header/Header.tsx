@@ -9,8 +9,13 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
+      {user ? (
+        <span className={styles.messageContainer}>
+          👋 Hello {user.username}{" "}
+        </span>
+      ) : null}
+      <span className={styles.heading}>4E Character Builder</span>
       <nav>
-        <span>D&D 4th Edition Character Builder</span>
         <ul>
           <li>
             <Link href="/">Home</Link>
@@ -20,11 +25,6 @@ export default function Header() {
           </li>
         </ul>
       </nav>
-      {user ? (
-        <span className={styles.messageContainer}>
-          👋 Hello {user.username}{" "}
-        </span>
-      ) : null}
     </header>
   );
 }

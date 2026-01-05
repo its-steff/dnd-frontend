@@ -1,7 +1,4 @@
 .header {
-  color: white;
-  padding: $spacing-5xl;
-  border: 1px solid black;
   background-image: linear-gradient(
     to right,
     #76320b,
@@ -10,32 +7,55 @@
     #402a1f,
     #2d2623
   );
-
+  color: white;
+  padding: $spacing-lg $spacing-md;
   display: flex;
-  justify-content: space-between;
-
-  nav {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-xs;
-    span {
-      font-size: $font-3xl;
-    }
-  }
-
-  ul {
-    display: flex;
-    gap: $spacing-3xl;
-    list-style: none;
-    padding: 0;
-    font-size: $font-lg;
-    a {
-      color: $light-yellow;
-    }
-  }
+  flex-direction: column;
+  gap: $spacing-small;
+  // border: 1px solid white;
 
   .messageContainer {
-    font-size: $font-lg;
-    align-self: center;
+    background-color: white;
+    padding: 8px;
+    width: 50%;
+    text-align: center;
+    border-radius: 10px;
+    color: $brown;
+    font-size: $font-md;
+    margin-bottom: 20px;
+  }
+
+  .heading {
+    font-size: $font-2xl;
+  }
+
+  nav {
+    ul {
+      list-style-type: none;
+      display: flex;
+      gap: $spacing-md;
+      padding: 0;
+      a {
+        color: $light-yellow;
+        text-decoration: none;
+
+        &
+        over {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  @include respond-min(tablet) {
+    padding: $spacing-lg 100px;
+
+    .messageContainer {
+      width: 20%;
+    }
+
+    .heading {
+      font-size: $font-3xl;
+    }
   }
 }

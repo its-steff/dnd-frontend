@@ -1,0 +1,33 @@
+.characterCard {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 8px 16px;
+  min-height: 100px;
+  background-color: white;
+
+  h2 {
+    margin-bottom: 4px;
+  }
+
+  &__labelContainer {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  &__buttonsContainer {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+
+    button {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  @include respond-min(tablet) {
+    padding: 20px;
+    width: 250px;
+  }
+}
