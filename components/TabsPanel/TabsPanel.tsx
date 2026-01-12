@@ -16,6 +16,8 @@ const TabsPanel: React.FC<TabsPanelProps> = ({
   defensesList,
   setAssignedDefenses,
   classDefenseBonus,
+  skills,
+  setSkills,
 }) => {
   // Shared modifier calculation function (same logic as AbilitiesPanel)
   const getModifier = (score: number) => {
@@ -98,7 +100,14 @@ const TabsPanel: React.FC<TabsPanelProps> = ({
         surgesPerDay={surgesPerDay}
       />
     ),
-    Skills: <SkillsPanel title="Skills Panel" />,
+    Skills: (
+      <SkillsPanel
+        title="Skills Panel"
+        skills={skills}
+        abilities={assignedScores}
+        setSkills={setSkills}
+      />
+    ),
     Powers: <div>Powers panel coming soon…</div>,
     Inventory: <div>Inventory panel coming soon…</div>,
   };

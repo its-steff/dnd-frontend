@@ -1,5 +1,6 @@
 import { Species } from "@/types/species";
 import { Classes } from "@/types/classes";
+import { CharacterSkills } from "@/types/skills";
 
 export interface TabsPanelProps {
   activeTab: string;
@@ -15,4 +16,6 @@ export interface TabsPanelProps {
   >;
   defensesList: string[];
   classDefenseBonus?: string | string[];
+  skills: CharacterSkills;
+  setSkills: React.Dispatch<React.SetStateAction<CharacterSkills>>;
 }

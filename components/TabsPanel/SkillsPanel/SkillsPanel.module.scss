@@ -1,0 +1,92 @@
+.skillsPanel {
+  margin-top: 1.5rem;
+
+  h2 {
+    margin-bottom: 0.75rem;
+  }
+}
+
+.skillsPanel__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+
+  thead {
+    background-color: $light-grey;
+  }
+
+  th,
+  td {
+    padding: 0.5rem;
+    border: 1px solid $border-grey;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  th {
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #fafafa;
+  }
+
+  tbody tr:hover {
+    background-color: #f0f0f0;
+  }
+}
+
+/* Column-specific tweaks */
+
+.nameCell {
+  text-align: left;
+  font-weight: 500;
+  min-width: 8rem;
+}
+
+.bonusCell {
+  font-weight: 600;
+  width: 4rem;
+}
+
+.abilityCell {
+  width: 6rem;
+}
+
+.trainedCell {
+  width: 4rem;
+
+  input {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+}
+
+.miscBonusCell {
+  width: 5rem;
+
+  input {
+    width: 100%;
+    padding: 0.25rem;
+    text-align: center;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .skillsPanel__table {
+    font-size: 0.8rem;
+
+    th,
+    td {
+      padding: 0.35rem;
+    }
+  }
+
+  .abilityCell {
+    display: none;
+  }
+}

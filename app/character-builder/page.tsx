@@ -9,6 +9,8 @@ import speciesData from "@/DummyData/species.json";
 import classesData from "@/DummyData/classes.json";
 import { Species } from "@/types/species";
 import { Classes } from "@/types/classes";
+import { CharacterSkills } from "@/types/skills";
+import { SKILLS } from "@/DummyData/skills";
 
 export default function CharacterBuilderPage() {
   const tabs = ["Abilities", "Combat Stats", "Skills", "Powers", "Inventory"];
@@ -65,6 +67,19 @@ export default function CharacterBuilderPage() {
     console.log(data, "from character save button");
   };
 
+  const initialSkills: CharacterSkills = Object.keys(SKILLS).reduce(
+    (acc, skill) => {
+      acc[skill as keyof CharacterSkills] = {
+        trained: false,
+        miscBonus: 0,
+      };
+      return acc;
+    },
+    {} as CharacterSkills
+  );
+
+  const [skills, setSkills] = useState<CharacterSkills>(initialSkills);
+
   return (
     <main className={styles.characterBuilderPage}>
       <h1>Character Builder</h1>
@@ -87,7 +102,7 @@ export default function CharacterBuilderPage() {
       </section>
 
       <TabsMenu tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
-      
+
       <TabsPanel
         activeTab={activeTab}
         abilitiesList={abilitiesList}
@@ -98,6 +113,8 @@ export default function CharacterBuilderPage() {
         defensesList={defensesList}
         setAssignedDefenses={setAssignedDefense}
         classDefenseBonus={selectedClass?.defense_bonus || undefined}
+        skills={skills}
+        setSkills={setSkills}
       />
     </main>
   );
