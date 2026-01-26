@@ -24,6 +24,7 @@
       "Insight",
       "Religion"
     ],
+    "trained_skill_choice_amount": 3,
     "weapon_proficiencies": ["Simple melee", "simple ranged"]
   },
   {
@@ -58,6 +59,7 @@
       "Intimidate",
       "Streetwise"
     ],
+    "trained_skill_choice_amount": 3,
     "weapon_proficiencies": [
       "Simple melee",
       "Military melee",
@@ -66,7 +68,16 @@
     ]
   },
   {
-    "armor_proficiencies": ["Cloth", "Leather", "Hide", "Chainmail", "Scale", "Plate", "Light shield", "Heavy shield"],
+    "armor_proficiencies": [
+      "Cloth",
+      "Leather",
+      "Hide",
+      "Chainmail",
+      "Scale",
+      "Plate",
+      "Light shield",
+      "Heavy shield"
+    ],
     "class_features": {
       "Channel Divinity": "Invoke your deity once per encounter and wield special powers such as divine mettle and divine strength",
       "Divine Challenge": "Can mark an enemy of your choice with Divine Challenge power",
@@ -82,7 +93,16 @@
     "role": "Defender",
     "starting_hp": "15",
     "trained_skill": "Religion",
-    "trained_skill_choices": ["Diplomacy", "Endurance", "Heal", "History", "Insight", "Intimidate", "Religion"],
+    "trained_skill_choices": [
+      "Diplomacy",
+      "Endurance",
+      "Heal",
+      "History",
+      "Insight",
+      "Intimidate",
+      "Religion"
+    ],
+    "trained_skill_choice_amount": 3,
     "weapon_proficiencies": ["Simple melee", "military melee", "simple ranged"]
   },
   {
@@ -111,6 +131,7 @@
       "Nature",
       "Religion"
     ],
+    "trained_skill_choice_amount": 3,
     "weapon_proficiencies": ["Dagger", "Quarterstaff"]
   }
 ]

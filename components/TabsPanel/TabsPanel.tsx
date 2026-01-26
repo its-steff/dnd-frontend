@@ -106,11 +106,14 @@ const TabsPanel: React.FC<TabsPanelProps> = ({
         skills={skills}
         abilities={assignedScores}
         setSkills={setSkills}
+        selectedClass={selectedClass}
       />
     ),
     Powers: <div>Powers panel coming soon…</div>,
     Inventory: <div>Inventory panel coming soon…</div>,
   };
+
+
 
   return (
     <section className={styles.panelSection}>

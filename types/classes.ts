@@ -12,5 +12,6 @@ export interface Classes {
   starting_hp: string;
   trained_skill?: string;
   trained_skill_choices: string[];
+  trained_skill_choice_amount: number;
   weapon_proficiencies: string[];
 }

@@ -72,6 +72,7 @@ export default function CharacterBuilderPage() {
       acc[skill as keyof CharacterSkills] = {
         trained: false,
         miscBonus: 0,
+        totalBonus: 0,
       };
       return acc;
     },
